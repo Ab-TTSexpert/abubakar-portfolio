@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Stats · Abubakar Baloch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    .stats-page { min-height: 100vh; display: grid; place-items: center; padding: 40px 20px; }
+    .stats-box { width: min(560px, 100%); padding: 32px; border-radius: var(--radius); }
+    .stats-box h1 { font-size: 1.6rem; margin-bottom: 6px; }
+    .stats-box form { display: grid; gap: 12px; margin-top: 22px; }
+    .stats-box label { font-size: 14px; color: var(--muted); }
+    .stats-box input {
+      font: 500 16px var(--font); color: var(--text); padding: 14px 16px; border-radius: 12px;
+      background: var(--surface-2); border: 1px solid var(--border-strong);
+    }
+    .stats-box input:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .stats-error { color: var(--gold); font-size: 14px; min-height: 1.4em; }
+    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
+    .stats-box [hidden] { display: none !important; }
+    .stats-days { margin-top: 22px; }
+    .stats-days h2 { font-size: 1rem; margin-bottom: 10px; color: var(--gold); }
+    .stats-days ol { list-style: none; padding: 0; margin: 0; max-height: 320px; overflow-y: auto; border: 1px solid var(--border); border-radius: 12px; }
+    .stats-days li { display: flex; justify-content: space-between; gap: 12px; padding: 9px 14px; font-size: 14px; border-bottom: 1px solid var(--border); }
+    .stats-days li:last-child { border-bottom: 0; }
+    .stats-days li span:last-child { font-weight: 700; font-variant-numeric: tabular-nums; }
+    .stats-days li.is-today { background: rgba(201, 169, 110, 0.08); }
+    .stats-back { display: inline-block; margin-top: 22px; color: var(--muted); font-size: 14px; }
+  </style>
+</head>
+<body>
+  <main class="stats-page">
+    <section class="stats-box glass">
+      <h1>Visitor stats</h1>
+      <p class="note" style="margin:0">Private. Counts only, no personal data is stored.</p>
+
+      <form id="stats-form">
+        <label for="passcode">Passcode</label>
+        <input id="passcode" name="passcode" type="password" autocomplete="current-password" required />
+        <button class="btn btn--primary" type="submit">View stats</button>
+        <p class="stats-error" id="stats-error" role="alert"></p>
+      </form>
+
+      <div id="stats-result" hidden>
+        <div class="stats-grid">
+          <article class="stat"><p class="stat__num"><span id="s-views">0</span></p><p class="stat__label">Total visits</p></article>
+          <article class="stat"><p class="stat__num"><span id="s-uniques">0</span></p><p class="stat__label">Unique visitors</p></article>
+          <article class="stat"><p class="stat__num"><span id="s-today">0</span></p><p class="stat__label">Visits today</p></article>
+          <article class="stat"><p class="stat__num stat__num--text" id="s-last">—</p><p class="stat__label">Last visit</p></article>
+        </div>
+        <div class="stats-days">
+          <h2>Last 30 days</h2>
+          <ol id="s-days"></ol>
+        </div>
+      </div>
+      <a class="stats-back" href="/">← Back to portfolio</a>
+    </section>
+  </main>
+  <script>
+    const form = document.getElementById("stats-form");
+    const err = document.getElementById("stats-error");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      err.textContent = "";
+      try {
+        const res = await fetch("/api/stats", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ passcode: form.passcode.value }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || "Could not load stats.");
+        document.getElementById("s-views").textContent = data.views.toLocaleString();
+        document.getElementById("s-uniques").textContent = data.uniques.toLocaleString();
+        document.getElementById("s-last").textContent = data.lastVisit
+          ? new Date(data.lastVisit).toLocaleString(undefined, { dateStyle: "medium", timeStyle: "short" })
+          : "No visits yet";
+        document.getElementById("s-today").textContent = (data.today ?? 0).toLocaleString();
+        const fmt = (d) => new Date(d + "T12:00:00").toLocaleDateString(undefined, { weekday: "short", day: "numeric", month: "short" });
+        document.getElementById("s-days").innerHTML = (data.last30 || [])
+          .map((d, i) => `<li${i === 0 ? ' class="is-today"' : ""}><span>${i === 0 ? "Today" : fmt(d.date)}</span><span>${d.visits.toLocaleString()}</span></li>`)
+          .join("");
+        form.hidden = true;
+        document.getElementById("stats-result").hidden = false;
+      } catch (ex) {
+        err.textContent = ex.message;
+      }
+    });
+  </script>
+</body>
+</html>

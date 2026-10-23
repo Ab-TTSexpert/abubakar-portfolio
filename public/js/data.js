@@ -101,7 +101,7 @@ window.SITE = {
       currency: "$",
       revenue: 55000,
       growth: "Reported growth: from shop setup to ~$55K per month in 180 days",
-      image: "/img/brands/mothers-dose.jpg",
+      image: "img/brands/mothers-dose.jpg",
       imageFit: "cover",
       role: "Shop setup and ongoing operations from launch.",
       activities: [
@@ -116,7 +116,7 @@ window.SITE = {
       category: "Health / Gummies and supplements",
       currency: "$",
       revenue: 100000,
-      image: "/img/brands/i-wanna-gummies.jpg",
+      image: "img/brands/i-wanna-gummies.jpg",
       imageFit: "cover",
       role: "Affiliate and creator coordination for a high-volume shop.",
       activities: [
@@ -131,7 +131,7 @@ window.SITE = {
       category: "Sports and golf products",
       currency: "$",
       revenue: 40000,
-      image: "/img/brands/in-the-lab.jpg",
+      image: "img/brands/in-the-lab.jpg",
       imageFit: "cover",
       role: "Shop operations and listings support for a US sports brand.",
       activities: [
@@ -147,7 +147,7 @@ window.SITE = {
       currency: "$",
       revenue: 44000,
       growth: "Reported growth: from ~$11K to ~$44K per month in 60 days",
-      image: "/img/brands/birdie-blend.jpg",
+      image: "img/brands/birdie-blend.jpg",
       imageFit: "contain",
       role: "Growth-phase shop management and creator coordination.",
       activities: [
@@ -163,7 +163,7 @@ window.SITE = {
       currency: "£",
       revenue: 37000,
       link: "https://izkan.co",
-      image: "/img/brands/izkan.jpg",
+      image: "img/brands/izkan.jpg",
       imageFit: "cover",
       role: "UK shop operations and advertising support.",
       activities: [
@@ -179,7 +179,7 @@ window.SITE = {
       currency: "£",
       revenue: 21000,
       link: "https://www.8hrsleepwell.com",
-      image: "/img/brands/8hoursleepwell.jpg",
+      image: "img/brands/8hoursleepwell.jpg",
       imageFit: "cover",
       role: "Remote shop management for a UK seller.",
       activities: [
@@ -195,7 +195,7 @@ window.SITE = {
       currency: "£",
       revenue: 33000,
       link: "", // add when available
-      image: "/img/brands/star-supplies.jpg",
+      image: "img/brands/star-supplies.jpg",
       imageFit: "contain",
       role: "Catalog and operations support across a broad home range.",
       activities: [
@@ -210,7 +210,7 @@ window.SITE = {
       category: "Health / Coffee brand",
       currency: "£",
       revenue: 17000,
-      image: "/img/brands/naturealm.jpg",
+      image: "img/brands/naturealm.jpg",
       imageFit: "cover",
       role: "Shop operations and creator partnerships for a UK coffee brand.",
       activities: [
@@ -277,15 +277,15 @@ window.SITE = {
 
   /* ---------- SELLER CENTER SNAPSHOTS ---------- */
   snapshots: [
-    { src: "/img/snapshots/snapshot-1.jpg", w: 1600, h: 721, alt: "Seller Center shop analytics, US pet shop, June–September 2026" },
-    { src: "/img/snapshots/snapshot-8.jpg", w: 1600, h: 728, alt: "Seller Center shop analytics, US pet shop, April–May 2026" },
-    { src: "/img/snapshots/snapshot-3.jpg", w: 1600, h: 735, alt: "Seller Center shop analytics, In The Lab, June–September 2026" },
-    { src: "/img/snapshots/snapshot-2.jpg", w: 1600, h: 728, alt: "Seller Center shop analytics, In The Lab, April–May 2026" },
-    { src: "/img/snapshots/snapshot-4.jpg", w: 1600, h: 664, alt: "Seller Centre analytics, Spain shop, July–October 2026" },
-    { src: "/img/snapshots/snapshot-5.jpg", w: 1600, h: 662, alt: "Seller Centre analytics, Spain shop, May–June 2026" },
-    { src: "/img/snapshots/snapshot-6.jpg", w: 1600, h: 736, alt: "Seller Center shop analytics, US nutrition shop, June–October 2026" },
-    { src: "/img/snapshots/snapshot-7.jpg", w: 1600, h: 724, alt: "Seller Center shop analytics, US nutrition shop, April–June 2026" },
-    { src: "/img/snapshots/snapshot-9.jpg", w: 1371, h: 643, alt: "Seller Center key metrics chart, January–October 2026" },
+    { src: "img/snapshots/snapshot-1.jpg", w: 1600, h: 721, alt: "Seller Center shop analytics, US pet shop, June–September 2026" },
+    { src: "img/snapshots/snapshot-8.jpg", w: 1600, h: 728, alt: "Seller Center shop analytics, US pet shop, April–May 2026" },
+    { src: "img/snapshots/snapshot-3.jpg", w: 1600, h: 735, alt: "Seller Center shop analytics, In The Lab, June–September 2026" },
+    { src: "img/snapshots/snapshot-2.jpg", w: 1600, h: 728, alt: "Seller Center shop analytics, In The Lab, April–May 2026" },
+    { src: "img/snapshots/snapshot-4.jpg", w: 1600, h: 664, alt: "Seller Centre analytics, Spain shop, July–October 2026" },
+    { src: "img/snapshots/snapshot-5.jpg", w: 1600, h: 662, alt: "Seller Centre analytics, Spain shop, May–June 2026" },
+    { src: "img/snapshots/snapshot-6.jpg", w: 1600, h: 736, alt: "Seller Center shop analytics, US nutrition shop, June–October 2026" },
+    { src: "img/snapshots/snapshot-7.jpg", w: 1600, h: 724, alt: "Seller Center shop analytics, US nutrition shop, April–June 2026" },
+    { src: "img/snapshots/snapshot-9.jpg", w: 1371, h: 643, alt: "Seller Center key metrics chart, January–October 2026" },
   ],
 
   watermark: "Abubakar Baloch | Expert",

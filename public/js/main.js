@@ -8,7 +8,10 @@
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
   const esc = (s) =>
     String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
-  const cdn = (src, w) => `/.netlify/images?url=${encodeURIComponent(src)}&w=${w}&fm=webp&q=80`;
+  // On Netlify, images go through its image CDN; elsewhere (e.g. GitHub Pages) they load directly.
+  const onNetlify = /\.netlify\.app$/.test(location.hostname);
+  const cdn = (src, w) =>
+    onNetlify ? `/.netlify/images?url=${encodeURIComponent("/" + src.replace(/^\//, ""))}&w=${w}&fm=webp&q=80` : src;
 
   /* ---------- Render: experience ---------- */
   const expList = $("#experience-list");
@@ -299,7 +302,11 @@
 
   $("#year").textContent = new Date().getFullYear();
 
-  /* ---------- Private visit counter (counts only, no personal data) ---------- */
+  /* ---------- Private visit counter (counts only, no personal data) ----------
+     Needs Netlify Functions, so it only runs when the site is hosted on Netlify. */
+  if (onNetlify) {
+  const statsLink = $(".footer__stats");
+  if (statsLink) statsLink.hidden = false;
   const KEY = "ab_visitor";
   let isNew = false;
   try {
@@ -314,5 +321,6 @@
   const payload = JSON.stringify({ newVisitor: isNew });
   if (!(navigator.sendBeacon && navigator.sendBeacon("/api/visit", new Blob([payload], { type: "application/json" })))) {
     fetch("/api/visit", { method: "POST", headers: { "Content-Type": "application/json" }, body: payload, keepalive: true }).catch(() => {});
+  }
   }
 })();

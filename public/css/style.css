@@ -554,6 +554,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .channel { display: flex; gap: 14px; align-items: center; padding: 14px; border-radius: var(--radius-sm); background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); }
 .channel__ico { flex: none; width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; color: var(--gold); background: var(--gold-soft); border: 1px solid var(--gold-line); }
 .channel__ico .ico { width: 22px; height: 22px; }
+.channel__logo { flex: none; width: 44px; height: 44px; border-radius: 12px; object-fit: contain; border: 1px solid var(--border); }
 .channel strong { display: block; font-size: 15px; }
 .channel span:not(.channel__ico) { display: block; font-size: 13px; color: var(--muted); }
 

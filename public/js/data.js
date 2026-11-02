@@ -301,9 +301,9 @@ window.SITE = {
       { title: "Motivate with incentives", text: "Running campaigns with retainer bonuses and incentive bonuses to keep creators active." },
     ],
     channels: [
-      { name: "WhatsApp", note: "Brand communities and daily updates", icon: "chat" },
-      { name: "Discord", note: "Brand communities and daily updates", icon: "users" },
-      { name: "Lark", note: "Creator communities and coordination", icon: "grid" },
+      { name: "WhatsApp", note: "Brand communities and daily updates", icon: "chat", logo: "img/tools/whatsapp.png" },
+      { name: "Discord", note: "Brand communities and daily updates", icon: "users", logo: "img/tools/discord.png" },
+      { name: "Lark", note: "Creator communities and coordination", icon: "grid", logo: "img/tools/lark.png" },
     ],
   },
 

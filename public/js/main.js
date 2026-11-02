@@ -132,7 +132,11 @@
     .join("");
   $("#channels").innerHTML = S.affiliate.channels
     .map(
-      (c) => `<li class="channel"><span class="channel__ico">${icons[c.icon] || ""}</span>
+      (c) => `<li class="channel">${
+        c.logo
+          ? `<img class="channel__logo" src="${esc(c.logo)}" alt="${esc(c.name)} logo" width="44" height="44" loading="lazy" />`
+          : `<span class="channel__ico">${icons[c.icon] || ""}</span>`
+      }
         <div><strong>${esc(c.name)}</strong><span>${esc(c.note)}</span></div></li>`
     )
     .join("");

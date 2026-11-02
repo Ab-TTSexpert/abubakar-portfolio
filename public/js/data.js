@@ -7,7 +7,7 @@ window.SITE = {
   /* ---------- CONTACT ---------- */
   contact: {
     name: "Abubakar Baloch",
-    email: "bakarbaloch733@gmail.com",
+    email: "abubakarbaloch733@gmail.com",
     phoneDisplay: "+44 7587 910296",
     whatsapp: "https://wa.me/447587910296",
     // No booking tool was provided, so consultations are booked via WhatsApp.
@@ -20,19 +20,35 @@ window.SITE = {
   /* ---------- EXPERIENCE (newest / current first) ---------- */
   experience: [
     {
+      title: "Independent TikTok Shop Growth Partner (UK/US)",
+      company: "Independent",
+      type: "Freelance",
+      location: "United Kingdom (Remote)",
+      period: "January 2024 – Present",
+      current: true,
+      points: [
+        "TikTok Shop management and operations for UK and US sellers.",
+        "Affiliate and creator programs, including WhatsApp and Discord communities.",
+        "Product listing and catalog management.",
+        "Shop advertising and campaign support.",
+        "Sales management and performance monitoring.",
+        "Shop health and operational troubleshooting.",
+      ],
+    },
+    {
       title: "Head of Affiliate Management",
       company: "Tikvix agency",
       companyUrl: "https://www.tikvix.com",
       companyLabel: "www.Tikvix.com",
       type: "Full-time",
       location: "Lahore, Pakistan",
-      period: "August 2026 – Present",
-      current: true,
+      period: "August 2026 – 5 October 2026",
+      current: false,
       points: [
         "Affiliate marketing strategy and management.",
         "TikTok Shop creator and affiliate relationships.",
         "Affiliate outreach and campaign coordination.",
-        "Creator communities, including WhatsApp and Lark.",
+        "Creator communities on WhatsApp, Discord and Lark.",
         "Affiliate performance monitoring.",
         "Creator content and sales tracking.",
         "Supporting shop growth through affiliate partnerships.",
@@ -54,22 +70,6 @@ window.SITE = {
         "Affiliate and creator management.",
         "Advertising and performance optimization.",
         "Coordinating daily operations across multiple shops.",
-      ],
-    },
-    {
-      title: "Virtual Assistant & Shop Expert",
-      company: "TikTok Shop",
-      type: "Freelance",
-      location: "United Kingdom (Remote)",
-      period: "January 2024 – Present",
-      current: true,
-      points: [
-        "TikTok Shop management and operations.",
-        "Product listing and catalog management.",
-        "Shop advertising and campaign support.",
-        "Sales management and performance monitoring.",
-        "Shop health and operational troubleshooting.",
-        "Supporting UK TikTok Shop sellers remotely.",
       ],
     },
     {
@@ -287,6 +287,106 @@ window.SITE = {
     { src: "img/snapshots/snapshot-7.jpg", w: 1600, h: 724, alt: "Seller Center shop analytics, US nutrition shop, April–June 2026" },
     { src: "img/snapshots/snapshot-9.jpg", w: 1371, h: 643, alt: "Seller Center key metrics chart, January–October 2026" },
   ],
+
+  /* ---------- AFFILIATE MANAGEMENT ----------
+     steps render as numbered cards; channels render as chips (icon = chat | users | grid). */
+  affiliate: {
+    intro:
+      "Affiliate is the engine of a TikTok Shop. I find the right creators, bring them in, and keep them engaged inside brand communities so they keep posting and selling.",
+    steps: [
+      { title: "Find the best affiliates", text: "Searching and shortlisting creators that fit the brand's products, using Cruva and Euka.ai." },
+      { title: "Reach out", text: "Direct, consistent outreach and follow-up to bring the right creators into the program." },
+      { title: "Build brand communities", text: "Creating and managing creator communities on WhatsApp, Discord and Lark, where affiliates engage with the brand." },
+      { title: "Share daily updates", text: "Posting the brand's daily updates inside the WhatsApp and Discord communities, so creators stay informed and engaged." },
+      { title: "Motivate with incentives", text: "Running campaigns with retainer bonuses and incentive bonuses to keep creators active." },
+    ],
+    channels: [
+      { name: "WhatsApp", note: "Brand communities and daily updates", icon: "chat" },
+      { name: "Discord", note: "Brand communities and daily updates", icon: "users" },
+      { name: "Lark", note: "Creator communities and coordination", icon: "grid" },
+    ],
+  },
+
+  /* ---------- TOOLS I USE MOST ----------
+     logo: optional path (for example "img/tools/cruva.png"). Empty shows a monogram tile. */
+  tools: [
+    {
+      name: "Cruva",
+      role: "Affiliate search and campaigns",
+      logo: "",
+      how: [
+        "Searching for affiliates that fit the brand",
+        "Setting up campaigns, creator hubs and affiliate hubs",
+        "Creating retainer bonuses and incentive bonuses",
+      ],
+    },
+    {
+      name: "Euka.ai",
+      role: "Affiliate search and campaigns",
+      logo: "",
+      how: [
+        "Searching for affiliates that fit the brand",
+        "Setting up campaigns, creator hubs and affiliate hubs",
+        "Creating retainer bonuses and incentive bonuses",
+      ],
+    },
+  ],
+
+  /* ---------- FEATURED CASE STUDY (client name withheld) ---------- */
+  caseStudy: {
+    market: "USA",
+    category: "Health: herbal and nutrition products",
+    title: "From about $17K to about $161K a month",
+    intro:
+      "A US health brand came to me in January 2026 doing roughly $17K a month on TikTok Shop. By September 2026 the shop reported $160,891 in a single month.",
+    before: { label: "January 2026", value: 17288, sub: "132 orders" },
+    after: { label: "September 2026", value: 160891, sub: "2,047 orders" },
+    multiple: "9.3x",
+    totals: [
+      { value: "$882.8K", label: "Reported shop GMV, Jan–Oct 2026" },
+      { value: "9,396", label: "Orders" },
+      { value: "8,439", label: "Customers" },
+      { value: "10,870", label: "Items sold" },
+    ],
+    did: [
+      "Built the affiliate program as the core of the business.",
+      "Brought in top creators and influencers across different channels to build brand awareness.",
+      "Ran aggressive, wide-reach creator outreach, supported by social media marketing.",
+      "Found winning content and scaled it across more creators.",
+      "Optimized the shop every 3 days.",
+      "Managed GMV Max ads every day.",
+    ],
+    affiliate: {
+      title: "Affiliate results",
+      period: "Feb 5 – Oct 31, 2026",
+      stats: [
+        { value: "$591.2K", label: "Creator-attributed GMV" },
+        { value: "7,272", label: "Videos" },
+        { value: "4,119", label: "LIVE streams" },
+        { value: "24 / 11", label: "Avg. creators posting / with sales per day" },
+      ],
+      note: "Estimated creator commission over the period: $57.2K.",
+    },
+    ads: {
+      title: "GMV Max ads results",
+      period: "Jan – Oct 2026",
+      stats: [
+        { value: "$762.4K", label: "Gross revenue" },
+        { value: "$303.1K", label: "Ad cost (client budget)" },
+        { value: "2.52", label: "ROI" },
+        { value: "7,493", label: "Ads orders" },
+      ],
+    },
+    images: [
+      { src: "img/case-study/case-sep.jpg", w: 1070, h: 510, alt: "Seller Center key metrics, September 2026: GMV $160,891.01 and 2,047 orders", cap: "September 2026" },
+      { src: "img/case-study/case-jan.jpg", w: 1045, h: 410, alt: "Seller Center key metrics chart, January 2026: GMV $17,287.76 and 132 orders", cap: "January 2026" },
+      { src: "img/case-study/case-overall.jpg", w: 1339, h: 647, alt: "Seller Center key metrics, January to October 2026: GMV $882,807.49 and 9,396 orders", cap: "January to October 2026" },
+      { src: "img/case-study/case-affiliate.jpg", w: 1500, h: 520, alt: "Seller Center affiliate performance, Feb 5 to Oct 31, 2026: creator-attributed GMV $591,206.69", cap: "Affiliate performance" },
+      { src: "img/case-study/case-ads.jpg", w: 1150, h: 635, alt: "GMV Max ads overview, January to October 2026: ROI 2.52", cap: "GMV Max ads" },
+    ],
+    note:
+      "Brand name withheld for client privacy. Figures come from the shop's TikTok Shop Seller Center and reflect the whole shop's performance, not revenue generated by me alone.",
+  },
 
   watermark: "Abubakar Baloch | Expert",
 };

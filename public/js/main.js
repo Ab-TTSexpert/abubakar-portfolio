@@ -113,6 +113,104 @@
     )
     .join("");
 
+
+  /* ---------- Render: affiliate management, tools, case study ---------- */
+  const stroke = 'fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"';
+  const icons = {
+    chat: `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path ${stroke} d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg>`,
+    users: `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle ${stroke} cx="9" cy="8" r="3.2"/><path ${stroke} d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle ${stroke} cx="17" cy="9" r="2.6"/><path ${stroke} d="M16 14.3c2.9.2 5 2.4 5 5.7"/></svg>`,
+    grid: `<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect ${stroke} x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect ${stroke} x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect ${stroke} x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect ${stroke} x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg>`,
+  };
+  $("#affiliate-intro").textContent = S.affiliate.intro;
+  $("#affiliate-steps").innerHTML = S.affiliate.steps
+    .map(
+      (st, i) => `<li class="aff-step reveal">
+        <span class="aff-step__n" aria-hidden="true">${i + 1}</span>
+        <div><h3>${esc(st.title)}</h3><p>${esc(st.text)}</p></div>
+      </li>`
+    )
+    .join("");
+  $("#channels").innerHTML = S.affiliate.channels
+    .map(
+      (c) => `<li class="channel"><span class="channel__ico">${icons[c.icon] || ""}</span>
+        <div><strong>${esc(c.name)}</strong><span>${esc(c.note)}</span></div></li>`
+    )
+    .join("");
+  $("#tools-grid").innerHTML = S.tools
+    .map((t) => {
+      const mark = t.logo
+        ? `<img class="tool__logo" src="${esc(t.logo)}" alt="${esc(t.name)} logo" width="52" height="52" loading="lazy" />`
+        : `<span class="tool__tile" aria-hidden="true">${esc(t.name.charAt(0))}</span>`;
+      return `<article class="tool reveal">
+        <div class="tool__head">${mark}<div><h3>${esc(t.name)}</h3><p class="tool__role">${esc(t.role)}</p></div></div>
+        <p class="project__label">How I use it</p>
+        <ul class="project__acts">${t.how.map((h) => `<li>${esc(h)}</li>`).join("")}</ul>
+      </article>`;
+    })
+    .join("");
+
+  const cs = S.caseStudy;
+  const miniStats = (list) =>
+    `<div class="mini">${list.map((m) => `<div class="mini__item"><strong>${esc(m.value)}</strong><span>${esc(m.label)}</span></div>`).join("")}</div>`;
+  const money = (n) => `$${n.toLocaleString("en-US")}`;
+  $("#case-study-body").innerHTML = `
+    <article class="case__card reveal">
+      <div class="project__tags">
+        <span class="tag-market">${esc(cs.market)}</span>
+        <span class="tag-cat">${esc(cs.category)}</span>
+      </div>
+      <h3 class="case__title">${esc(cs.title)}</h3>
+      <p class="case__intro">${esc(cs.intro)}</p>
+      <div class="case__rev">
+        <div class="rev">
+          <p class="rev__label">Reported Monthly Shop Revenue · ${esc(cs.before.label)}</p>
+          <p class="rev__value"><span data-count="${cs.before.value}" data-prefix="$" data-sep="1">${money(cs.before.value)}</span></p>
+          <p class="rev__growth">${esc(cs.before.sub)}</p>
+        </div>
+        <div class="case__mult" aria-hidden="true"><strong>${esc(cs.multiple)}</strong><span>→</span></div>
+        <div class="rev rev--after">
+          <p class="rev__label">Reported Monthly Shop Revenue · ${esc(cs.after.label)}</p>
+          <p class="rev__value"><span data-count="${cs.after.value}" data-prefix="$" data-sep="1">${money(cs.after.value)}</span></p>
+          <p class="rev__growth">${esc(cs.after.sub)}</p>
+        </div>
+      </div>
+    </article>
+    <div class="stats stats--4">
+      ${cs.totals.map((t) => `<article class="stat reveal"><p class="stat__num stat__num--text"><span>${esc(t.value)}</span></p><p class="stat__label">${esc(t.label)}</p></article>`).join("")}
+    </div>
+    <div class="case__cols">
+      <article class="case__panel reveal">
+        <h3>What I did</h3>
+        <ul class="project__acts">${cs.did.map((d) => `<li>${esc(d)}</li>`).join("")}</ul>
+      </article>
+      <div class="case__results">
+        <article class="case__panel reveal">
+          <h3>${esc(cs.affiliate.title)} <small>${esc(cs.affiliate.period)}</small></h3>
+          ${miniStats(cs.affiliate.stats)}
+          <p class="case__fine">${esc(cs.affiliate.note)}</p>
+        </article>
+        <article class="case__panel reveal">
+          <h3>${esc(cs.ads.title)} <small>${esc(cs.ads.period)}</small></h3>
+          ${miniStats(cs.ads.stats)}
+        </article>
+      </div>
+    </div>
+    <div class="gallery gallery--case" id="case-gallery">
+      ${cs.images
+        .map(
+          (s, i) => `<button type="button" class="shot-btn reveal" data-index="${i}" aria-label="Enlarge: ${esc(s.alt)}">
+            <figure class="shot">
+              <img src="${cdn(s.src, 800)}" srcset="${cdn(s.src, 480)} 480w, ${cdn(s.src, 800)} 800w" sizes="(max-width: 560px) 100vw, 400px"
+                   width="${s.w}" height="${s.h}" loading="lazy" decoding="async" alt="${esc(s.alt)}" draggable="false" />
+              <div class="wm" aria-hidden="true">${wmMarkup()}</div>
+            </figure>
+            <span class="shot-cap">${esc(s.cap)}</span>
+          </button>`
+        )
+        .join("")}
+    </div>
+    <p class="note reveal">${esc(cs.note)}</p>`;
+
   /* ---------- Reveal on scroll (staggered per batch) ---------- */
   const markVisible = (el) => el.classList.add("is-visible");
   const reveals = $$(".reveal, .tags");
@@ -249,23 +347,25 @@
   $(".wm", lbFig).innerHTML = wmMarkup();
   let current = 0;
   let lastFocus = null;
+  let list = S.snapshots;
   const show = (i) => {
-    current = (i + S.snapshots.length) % S.snapshots.length;
-    const s = S.snapshots[current];
+    current = (i + list.length) % list.length;
+    const s = list[current];
     lbImg.src = cdn(s.src, 1600);
     lbImg.alt = s.alt;
     lbImg.width = s.w;
     lbImg.height = s.h;
     lbFig.style.setProperty("--ar", String(s.w / s.h));
-    lbCount.textContent = `${current + 1} / ${S.snapshots.length}`;
+    lbCount.textContent = `${current + 1} / ${list.length}`;
   };
   const swap = (dir) => {
     if (reduceMotion) return show(current + dir);
     lbFig.classList.add("is-swapping");
     setTimeout(() => { show(current + dir); lbFig.classList.remove("is-swapping"); }, 200);
   };
-  const open = (i) => {
+  const open = (i, l) => {
     lastFocus = document.activeElement;
+    list = l || S.snapshots;
     show(i);
     lb.hidden = false;
     document.body.style.overflow = "hidden";
@@ -280,7 +380,11 @@
   };
   $("#gallery").addEventListener("click", (e) => {
     const btn = e.target.closest(".shot-btn");
-    if (btn) open(+btn.dataset.index);
+    if (btn) open(+btn.dataset.index, S.snapshots);
+  });
+  $("#case-gallery").addEventListener("click", (e) => {
+    const btn = e.target.closest(".shot-btn");
+    if (btn) open(+btn.dataset.index, S.caseStudy.images);
   });
   $(".lightbox__close", lb).addEventListener("click", close);
   $(".lightbox__nav--prev", lb).addEventListener("click", () => swap(-1));

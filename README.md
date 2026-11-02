@@ -8,7 +8,7 @@ A one-page portfolio for Abubakar Baloch covering an About section, experience t
 - Netlify Functions + Netlify Blobs for the private visitor counter (`/api/visit`, `/api/stats`)
 
 ## Editing content
-All job titles, dates, projects, revenue figures, pricing plans and snapshots live in **`public/js/data.js`**. Edit that file and the page re-renders from it. The hero, About and Contact copy is in `public/index.html`.
+All job titles, dates, projects, revenue figures, pricing plans, snapshots, the affiliate management steps, the tools (Cruva, Euka.ai) and the featured case study live in **`public/js/data.js`**. To show an official tool logo, save the file in `public/img/tools/` and set the tool's `logo` path in `data.js`. Edit that file and the page re-renders from it. The hero, About and Contact copy is in `public/index.html`.
 
 ## Visitor stats
 1. In the Netlify dashboard, go to **Project configuration → Environment variables** and add `STATS_PASSCODE` with a passcode of your choice. Then redeploy.

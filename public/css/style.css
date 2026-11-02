@@ -561,7 +561,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .tool { padding: 24px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--border); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 12px; }
 .tool__head { display: flex; gap: 16px; align-items: center; }
 .tool__tile { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; font-family: var(--serif); font-size: 1.6rem; font-weight: 700; color: var(--on-gold); background: var(--gold); }
-.tool__logo { width: 52px; height: 52px; border-radius: 14px; object-fit: contain; background: #fff; padding: 6px; }
+.tool__logo { height: 56px; width: auto; max-width: 150px; border-radius: 12px; object-fit: contain; flex: none; border: 1px solid var(--border); }
 .tool h3 { font-size: 1.3rem; }
 .tool__role { font-size: 13px; color: var(--muted); }
 

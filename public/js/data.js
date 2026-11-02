@@ -313,7 +313,7 @@ window.SITE = {
     {
       name: "Cruva",
       role: "Affiliate search and campaigns",
-      logo: "",
+      logo: "img/tools/cruva.png",
       how: [
         "Searching for affiliates that fit the brand",
         "Setting up campaigns, creator hubs and affiliate hubs",
@@ -323,7 +323,7 @@ window.SITE = {
     {
       name: "Euka.ai",
       role: "Affiliate search and campaigns",
-      logo: "",
+      logo: "img/tools/euka.png",
       how: [
         "Searching for affiliates that fit the brand",
         "Setting up campaigns, creator hubs and affiliate hubs",

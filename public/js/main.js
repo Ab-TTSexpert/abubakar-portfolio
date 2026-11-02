@@ -139,7 +139,7 @@
   $("#tools-grid").innerHTML = S.tools
     .map((t) => {
       const mark = t.logo
-        ? `<img class="tool__logo" src="${esc(t.logo)}" alt="${esc(t.name)} logo" width="52" height="52" loading="lazy" />`
+        ? `<img class="tool__logo" src="${esc(t.logo)}" alt="${esc(t.name)} logo" height="56" loading="lazy" />`
         : `<span class="tool__tile" aria-hidden="true">${esc(t.name.charAt(0))}</span>`;
       return `<article class="tool reveal">
         <div class="tool__head">${mark}<div><h3>${esc(t.name)}</h3><p class="tool__role">${esc(t.role)}</p></div></div>
